@@ -1,43 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="bg-neutral-800 min-h-screen flex flex-col justify-center items-center text-center">
-  <div className="flex items-center justify-center space-x-8 mb-12">
-    <a href="https://vite.dev" target="_blank">
-      <img src={viteLogo} className="w-24 h-24" alt="Vite logo" />
-    </a>
-    <a href="https://react.dev" target="_blank">
-      <img
-  src={reactLogo}
-  className="w-24 h-24 animate-spin"
-  style={{ animationDuration: '10s' }}
-  alt="React logo"
-/>
-    </a>
-  </div>
-  <h1 className="text-5xl font-bold text-white mb-16">Vite + React</h1>
-  <div className="space-y-6 mb-8">
-    <button
-  className="bg-neutral-900 text-white py-2 px-6 rounded-lg text-lg"
-  onClick={() => setCount((count) => count + 1)}
->
-  count is {count}
-</button>
-    <p className="text-sm text-neutral-400">
-      Edit <code>src/App.jsx</code> and save to test HMR
-    </p>
-  </div>
-  <p className="text-sm text-neutral-500">
-    Click on the Vite and React logos to learn more
-  </p>
-</div>
-  )
+    <div className="p-6">
+      {/* Tutorial 3: grid card */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[1, 2, 3, 4, 5].map((n) => (
+          <div
+            key={n}
+            className="bg-white p-6 min-h-40 rounded-lg shadow text-5xl flex justify-center items-center hover:scale-105 duration-300 hover:border hover:bg-gray-200 hover:shadow-lg transition-shadow"
+          >
+            card
+          </div>
+        ))}
+      </div>
+
+      {/* Tutorial 5: uji font */}
+      <div className="mt-12">
+        <h1 className="text-3xl font-bold">Ini font default</h1>
+        <h1 className="text-3xl font-poppins">Ini font Poppins</h1>
+        <p>
+          Ini font default juga. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Illum perferendis dolores provident debitis,
+          necessitatibus ullam, quibusdam dolore cumque velit, molestias
+          recusandae exercitationem pariatur. Quas ullam aliquid ea. Repellat,
+          exercitationem similique!
+        </p>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
