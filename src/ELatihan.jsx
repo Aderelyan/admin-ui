@@ -1,7 +1,22 @@
 
 import './App.css';
+import react, { useEffect,useState } from 'react';
 import UseCard from './UseCard';
+import { getUsers } from './Services' ;
 function ELatihan() {
+
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const data = await getUsers();
+      setUsers(data);
+    } catch (error) {
+      console.error("[Component] Gagal menampilkan data:", error.message);
+    }
+  };
+  fetchData();
+}, []);
   return (
     <main>
     <div className="min-h-screen bg-gray-100 p-6">
@@ -9,9 +24,9 @@ function ELatihan() {
         User Cards
       </h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <UseCard name="reno" email="reno@example.com" street="123 main" city="anon"/> 
-        <UseCard name="jane" email="jane@example.com" street="123 main" city="anon"/>
-        <UseCard name="jona" email="jona@example.com" street="123 main" city="anon" />
+        {users.map((user) => (
+  <UseCard key={user.email} {...user} />
+))}
       </div>
     </div>
     </main>
