@@ -1,8 +1,8 @@
 
-import './App.css';
 import react, { useEffect,useState } from 'react';
 import UseCard from './UseCard';
 import { getPosts } from './Services' ;
+
 function ELatihan() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
